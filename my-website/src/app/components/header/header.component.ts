@@ -8,10 +8,22 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) {}
+  constructor(protected router: Router) {}
   
   isCompact(): boolean {
     return this.router.url !== '/';
+  }
+
+  getContentBasedOnRoute(): string {
+    const currentRoute = this.router.url;
+
+    if (currentRoute.includes('about')) {
+      return 'About';
+    } else if (currentRoute.includes('projects')) {
+      return 'Projects';
+    } else {
+      return 'Samuel Mendes';
+    }
   }
 
 }

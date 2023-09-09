@@ -2,7 +2,7 @@
   <div class="card-container">
     <div class="card-text">{{ cardText }}</div>
     <div class="card">
-      <div class="card-wrapper">
+      <div class="card-wrapper" (click)="onCardClick()">
         <h2>{{ cardHeader }}</h2>
         <p>{{ cardParagraph }}</p>
       </div>

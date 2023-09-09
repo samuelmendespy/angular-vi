@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -10,4 +11,16 @@ export class CardComponent {
   @Input() cardHeader: string = '';
   @Input() cardParagraph: string = '';
   @Input() cardLink: string = ''; 
+  @Input() cardRouteLink: string = '';
+
+  constructor (
+    private router: Router,
+    ) {}
+
+  onCardClick() {
+    if (this.cardLink != '') {
+      window.open(this.cardLink, '_blank'); // Open the link in a new tab
+    }
+      this.router.navigate([`/${this.cardRouteLink}`]);
+  }
 }
